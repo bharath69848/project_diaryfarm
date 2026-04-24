@@ -1,0 +1,253 @@
+:root {
+  --primary: #00d95f;
+  --primary-hover: #00bf54;
+  --bg-sky: linear-gradient(to bottom, #87ceeb 0%, #e0faff 100%);
+  --text: #4a4a4a;
+  --text-muted: #8e8e8e;
+  --card-bg: #ffffff;
+  --input-bg: #f9f9f9;
+  --border: #f0f0f0;
+  --error: #ff5e5e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  color: var(--text);
+  overflow: hidden;
+}
+
+/* Background Scene */
+.scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-sky);
+  z-index: -1;
+}
+
+.sun {
+  position: absolute;
+  top: 30px;
+  left: 60px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sun svg {
+  width: 100%;
+  height: 100%;
+  fill: #ffdb00;
+}
+
+.cloud {
+  position: absolute;
+  top: 100px;
+  right: 150px;
+  width: 120px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50px;
+  opacity: 0.8;
+}
+
+.cloud::after,
+.cloud::before {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.cloud::after {
+  width: 50px;
+  height: 50px;
+  top: -20px;
+  left: 20px;
+}
+
+.cloud::before {
+  width: 40px;
+  height: 40px;
+  top: -15px;
+  left: 60px;
+}
+
+.hills {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hill {
+  position: absolute;
+  bottom: -50px;
+  width: 60vw;
+  height: 40vh;
+  background: #00d95f;
+  border-radius: 50% 50% 0 0;
+}
+
+.hill-1 {
+  left: -10vw;
+  background: #00c853;
+  z-index: 1;
+}
+
+.hill-2 {
+  right: -10vw;
+  background: #00e676;
+  z-index: 2;
+  height: 35vh;
+}
+
+.hill-3 {
+  left: 20vw;
+  background: #26de81;
+  z-index: 0;
+  width: 70vw;
+  height: 45vh;
+}
+
+/* Auth Layout */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-card {
+  background: var(--card-bg);
+  padding: 3rem 2.5rem;
+  border-radius: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  background: #e8fbf1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo-text {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper svg {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 2px solid transparent;
+  padding: 1rem 1.25rem 1rem 3.5rem;
+  border-radius: 1.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  background: white;
+  border-color: var(--primary);
+  box-shadow: 0 5px 15px rgba(0, 217, 95, 0.1);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1.1rem;
+  border-radius: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 217, 95, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(0, 217, 95, 0.4);
+}
+
+.footer-link {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.footer-link a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.footer-link a:hover {
+  text-decoration: underline;
+}
